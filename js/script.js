@@ -65,20 +65,32 @@ function changeUnit ()
 
 calcBMI();
 
-const text = "Although BMI is often a practical indicator of healthy weight, it is not suited for every person. Specific groups should carefully consider their BMI outcomes, and in certain cases, the measurement may not be beneficial to use.";
-const text2 = "A BMI range of 18.5 to 24.9 is considered a 'healthy weight.'Maintaining a healthy weight may lower your chance of experiencing health issues later on, such as obesity and type 2 diabetes. Aim for nutritious diet with reduced fat and sugar content, incorporating ample fruits and vegetables. Additionally. strive for regular physical activity. ideally about 30 minutes daily for five days a week.";
-let i = 0;
+const text = "A BMI range of 18.5 to 24.9 is considered a 'healthy weight.'Maintaining a healthy weight may lower your chance of experiencing health issues later on, such as obesity and type 2 diabetes. Aim for nutritious diet with reduced fat and sugar content, incorporating ample fruits and vegetables. Additionally. strive for regular physical activity. ideally about 30 minutes daily for five days a week.";
+const text2 = "Although BMI is often a practical indicator of healthy weight, it is not suited for every person. Specific groups should carefully consider their BMI outcomes, and in certain cases, the measurement may not be beneficial to use.";
 const speed = 30;
+let i = 0;
+let j = 0;
 
-function typeWriter ()
+function typeWriterText1 ()
 {
-    if ( i < text.length || i <text2.length)
+    if ( i < text.length )
     {
         document.getElementById( "text" ).innerHTML += text.charAt( i );
-        document.getElementById( "text2" ).innerHTML += text.charAt( i );
         i++;
-        setTimeout( typeWriter, speed );
+        setTimeout( typeWriterText1, speed );
     }
 }
 
-typeWriter();
+function typeWriterText2 ()
+{
+    if ( j < text2.length )
+    {
+        document.getElementById( "text2" ).innerHTML += text2.charAt( j );
+        j++;
+        setTimeout( typeWriterText2, speed );
+    }
+}
+
+
+typeWriterText1();
+typeWriterText2();
