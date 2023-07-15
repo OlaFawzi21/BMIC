@@ -21,15 +21,21 @@ function calculate ()
     else
     {
         let bmi;
+        let status;
         if ( unit === "Metric" )
         {
             bmi = weight / Math.pow( height / 100, 2 );
+            if ( bmi < 18.5 ) status = "Underweight";
+            else if ( bmi >= 18.5 && bmi <= 24.9 ) status = "Normal weight";
+            else if ( bmi >= 25 && bmi <= 29.9 ) status = "Overweight";
+            else status = "Obese";
+
         } else
         {
             bmi = ( weight / Math.pow( height, 2 ) ) * 703;
         }
 
-        result.innerHTML = "The result is: " + bmi.toFixed( 2 );
+        result.innerHTML = `The result is: <b>${ bmi.toFixed( 2 ) }</b> , <i>${ status }</i>`;
     }
 }
 
